@@ -2,7 +2,7 @@ require 'securerandom'
 
 class RobotManager
   def self.database
-    if ENV["ROBOT_MANAGER_ENV"] == 'test'
+    if ENV['ROBOT_MANAGER_ENV'] == 'test'
       @database = Sequel.postgres('robot_manager_test')
     else
       @database = Sequel.postgres('robot_manager')

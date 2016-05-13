@@ -29,16 +29,16 @@ class RobotWorldApp < Sinatra::Base
 
   put '/robots/:id' do |id|
     RobotManager.update(id.to_i, params[:robot])
-    redirect "/robots/#{id}"
+    redirect '/robots/#{id}'
   end
 
   put '/robots/:id/generate_avatar' do |id|
     RobotManager.generate_new_avatar(id.to_i)
-    redirect "/robots/#{id}/edit"
+    redirect '/robots/#{id}/edit'
   end
 
   delete '/robots/:id' do |id|
     RobotManager.destroy(id.to_i)
-    redirect "/robots"
+    redirect '/robots'
   end
 end
