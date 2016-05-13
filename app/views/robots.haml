@@ -1,0 +1,23 @@
+%table.table
+  %tr
+    %th ID
+    %th Avatar
+    %th Name
+    %th City
+    %th State
+    %th Birthdate
+    %th Date Hired
+    %th Department
+  - @robots.each do |robot|
+    %container
+      %tr
+        %td= robot.id
+        %td
+          %a{:href => "/robots/#{robot.id}"}
+            %img{:src => "http://robohash.org/#{robot.avatar}?size=100x100"}
+        %td= robot.name
+        %td= robot.city
+        %td= robot.state
+        %td= robot.birthdate
+        %td= robot.date_hired
+        %td= robot.department

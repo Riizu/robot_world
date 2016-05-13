@@ -1,0 +1,18 @@
+.row
+  %form.col-md-1{:action => "/robots/#{@robot.id}", :method => "POST"}
+    %input{:type => "hidden", :name => "_method", :value => "DELETE"}
+    %input.btn.btn-danger{:type => "submit", :value => "delete"}
+  %a{:href => "./#{@robot.id}/edit"}
+    %button.btn.btn-info Edit
+
+.row
+  .col-md-2
+    %img.img-responsive.center-block{:src => "http://robohash.org/#{@robot.avatar}?size=200x200"}
+  .col-md-10
+    %h2= @robot.name
+    %p= "Birth date: #{@robot.birthdate}"
+    %p= "#{@robot.city}, #{@robot.state}"
+    %p= "Hiring date: #{@robot.date_hired}"
+    %p= "Department: #{@robot.department}"
+
+

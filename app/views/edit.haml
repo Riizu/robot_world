@@ -1,0 +1,20 @@
+.row
+  .col-md-6
+    %img.img-responsive.center-block{:src => "http://robohash.org/#{@robot.avatar}?size=200x200"}
+
+    %form{:action => "/robots/#{@robot.id}/generate_avatar", :method => "post"}
+      %input{:type => "hidden", :name => "_method", :value => "PUT"}
+      %input.form-control{:type => "submit", :value => "Generate"}
+
+
+
+  .input-group.col-md-6
+    %form{:action => "/robots/#{@robot.id}", :method => "post"}
+      %input{:type => "hidden", :name => "_method", :value => "PUT"}
+      %input.form-control{:type => "text", :name => "robot[name]", :placeholder => "Name", "value" => @robot.name}
+      %input.form-control{:type => "text", :name => "robot[city]", :placeholder => "City", "value" => @robot.city}
+      %input.form-control{:type => "text", :name => "robot[state]", :placeholder => "State", "value" => @robot.state}
+      %input.form-control{:type => "text", :name => "robot[birth_date]", :placeholder => "Birthdate", "value" => @robot.birthdate}
+      %input.form-control{:type => "text", :name => "robot[date_hired]", :placeholder => "Date Hired", "value" => @robot.date_hired}
+      %input.form-control{:type => "text", :name => "robot[department]", :placeholder => "Department", "value" => @robot.department}
+      %input.form-control{:type => "submit"}
