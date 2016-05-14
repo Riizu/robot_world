@@ -1,7 +1,8 @@
 require 'bundler'
 Bundler.require
 
-databases = [Sequel.postgres('robot_manager')]
+databases = [Sequel.postgres('robot_world'),
+             Sequel.postgres('robot_world_test')]
 
 databases.each do |database|
   database.create_table :robots do

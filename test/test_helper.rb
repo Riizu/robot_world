@@ -1,4 +1,4 @@
-ENV['ROBOT_MANAGER_ENV'] ||= 'test'
+ENV['ROBOT_WORLD_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'minitest/autorun'
@@ -12,7 +12,7 @@ class Minitest::Test
   end
 end
 
-Capybara.app = TaskManagerApp
+Capybara.app = RobotWorldApp
 Capybara.save_and_open_page_path = '/tmp'
 
 class FeatureTest < Minitest::Test

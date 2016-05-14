@@ -2,16 +2,11 @@ require 'securerandom'
 
 class RobotManager
   def self.database
-    if ENV['ROBOT_MANAGER_ENV'] == 'test'
-      @database = Sequel.postgres('robot_manager_test')
+    if ENV['ROBOT_WORLD_ENV'] == 'test'
+      @database = Sequel.postgres('robot_world_test')
     else
-      @database = Sequel.postgres('robot_manager')
+      @database = Sequel.postgres('robot_world')
     end
-  end
-
-  def self.create(robot)
-    id = table.insert(robot)
-    locate(id).update(avatar: SecureRandom.hex)
   end
 
   def self.table
@@ -20,6 +15,14 @@ class RobotManager
 
   def self.locate(id)
     table.where(id: id)
+  end
+
+  def self.generate_new_avatar(id)
+    locate(id).update(avatar: SecureRandom.hex)
+  end
+
+  def self.create(robot)
+    table.insert(robot)
   end
 
   def self.all
@@ -44,9 +47,5 @@ class RobotManager
 
   def self.delete_all
     table.delete
-  end
-
-  def self.generate_new_avatar(id)
-    locate(id).update(avatar: SecureRandom.hex)
   end
 end
