@@ -1,0 +1,17 @@
+%H2 Robot World Statistics
+.col-md-6
+  %p Average Robot age:
+  %p Number of Robots hired per year:
+  %p Number of Robots per city:
+  %p Number of Robots per state:
+  %p Number of Robots per department:
+.col-md-6
+  %p= @ra.average_age
+  - @ra.num_per_year.each do |entry|
+    %p= "Year: #{entry[0]}  Total: #{entry[1]}"
+  - @ra.num_per_city.each do |entry|
+    %p= "City: #{entry[0]}  Total: #{entry[1]}"
+  - @ra.num_per_state.each do |entry|
+    %p= "State: #{entry[0]}  Total: #{entry[1]}"
+  - @ra.num_per_department.each do |entry|
+    %p= "Department: #{entry[0]}  Total: #{entry[1]}"
